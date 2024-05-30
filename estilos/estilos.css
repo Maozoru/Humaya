@@ -1,14 +1,173 @@
+/* Estilos personalizados para la Tienda de Alfajores */
 
+/* Colores */
+:root {
+    --primary-color: #a0522d; /* Sienna */
+    --secondary-color: #f4a460; /* Sandy Brown */
+    --background-color: #fff8dc; /* Cornsilk */
+    --text-color: #4b3621; /* Brown */
+    --highlight-color: #d2b48c; /* Tan */
+}
 
-.z1{
-    background-color: aqua;
+/* Navbar */
+.navbar-light .navbar-brand {
+    color: var(--text-color);
 }
-.z1{
-    background-color: rgb(198, 245, 10);
+
+.navbar-light .navbar-brand:hover {
+    color: var(--primary-color);
 }
-.z1{
-    background-color: rgb(16, 16, 142);
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--text-color);
 }
-.z1{
-    background-color: rgb(255, 0, 251);
+
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-logo {
+    width: 100px;
+}
+
+.form-inline .form-control {
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Carrusel */
+.carousel-inner img {
+    height: 400px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: var(--primary-color);
+}
+
+/* Tarjetas de productos */
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    color: var(--primary-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--highlight-color);
+    border-color: var(--highlight-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+footer h5 {
+    margin-bottom: 15px;
+}
+
+footer p, footer a {
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: var(--background-color);
+}
+
+footer a:hover {
+    color: #ddd;
+}
+
+/* Otros estilos */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.shadow-sm {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Mejora de UX/UI */
+.navbar {
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.carousel-caption h5 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.btn-primary {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+footer h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+footer p, footer a {
+    font-size: 1rem;
 }
