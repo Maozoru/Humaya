@@ -2,24 +2,23 @@
 
 /* Colores */
 :root {
-    --primary-color: #a0522d; /* Sienna */
-    --secondary-color: #f4a460; /* Sandy Brown */
-    --background-color: #fff8dc; /* Cornsilk */
-    --text-color: #4b3621; /* Brown */
-    --highlight-color: #d2b48c; /* Tan */
+    --primary-color: #e4977a; /* Brown */
+    --secondary-color: #ffaa8b; /* Warm Grey */
+    --background-color: #f5f5f5; /* Light Grey */
+    --text-color: #ff7e61; /* Dark Brown */
+    --highlight-color: #f7cdbe; /* Brownish */
+    --button-hover-color: #bcaaa4; /* Light Brown */
 }
 
 /* Navbar */
-.navbar-light .navbar-brand {
-    color: var(--text-color);
+.navbar-dark .navbar-brand {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
-.navbar-light .navbar-brand:hover {
-    color: var(--primary-color);
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: var(--text-color);
+.navbar-dark .navbar-brand:hover {
+    color: var(--highlight-color);
 }
 
 .navbar-center {
@@ -33,76 +32,102 @@
 }
 
 .form-inline .form-control {
-    border-color: var(--primary-color);
+    border-color: var(--highlight-color);
 }
 
-.btn-outline-primary {
-    color: var(--primary-color);
-    border-color: var(--primary-color);
+.btn-outline-light {
+    color: var(--secondary-color);
+    border-color: var(--highlight-color);
 }
 
-.btn-outline-primary:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+.btn-outline-light:hover {
+    background-color: var(--highlight-color);
+    border-color: var(--highlight-color);
     color: white;
 }
 
 /* Carrusel */
 .carousel-inner img {
-    height: 400px;
+    height: 500px;
     object-fit: cover;
 }
 
 .carousel-caption {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.carousel-caption h5 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
 }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
-    background-color: var(--primary-color);
+    background-color: var(--highlight-color);
 }
 
 /* Tarjetas de productos */
 .card {
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card-title {
     color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1.1rem;
+    color: var(--text-color);
 }
 
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: var(--highlight-color);
-    border-color: var(--highlight-color);
+    background-color: var(--button-hover-color);
+    border-color: var(--button-hover-color);
+    transform: translateY(-3px);
 }
 
 /* Footer */
 footer {
     background-color: var(--primary-color);
-    color: var(--background-color);
+    color: var(--secondary-color);
+    padding: 30px 0;
 }
 
 footer h5 {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 footer p, footer a {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
 }
 
 footer a {
-    color: var(--background-color);
+    color: var(--secondary-color);
+    transition: color 0.3s;
 }
 
 footer a:hover {
@@ -133,41 +158,25 @@ body {
     padding: 15px 0;
 }
 
-.navbar-brand {
-    font-size: 1.5rem;
+.carousel {
+    margin-top: 20px;
+}
+
+.section-heading {
+    font-size: 2.5rem;
     font-weight: bold;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    position: relative;
 }
 
-.carousel-caption h5 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.carousel-caption p {
-    font-size: 1.2rem;
-}
-
-.card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.card-text {
-    font-size: 1rem;
-    color: var(--text-color);
-}
-
-.btn-primary {
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 10px 20px;
-}
-
-footer h5 {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-footer p, footer a {
-    font-size: 1rem;
+.section-heading::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background-color: var(--highlight-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
 }
