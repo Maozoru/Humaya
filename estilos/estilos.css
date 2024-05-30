@@ -1,4 +1,3 @@
-/* Estilos personalizados para la Tienda de Alfajores */
 
 /* Colores */
 :root {
@@ -28,7 +27,7 @@
 }
 
 .navbar-logo {
-    width: 100px;
+    width: 83px;
 }
 
 .form-inline .form-control {
@@ -153,7 +152,6 @@ body {
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
-/* Mejora de UX/UI */
 .navbar {
     padding: 15px 0;
 }
