@@ -1,11 +1,11 @@
 
 :root {
-    --primary-color: #e4977a; /* Brown */
-    --secondary-color: #ffaa8b; /* Warm Grey */
-    --background-color: #f5f5f5; /* Light Grey */
-    --text-color: #ff7e61; /* Dark Brown */
-    --highlight-color: #f7cdbe; /* Brownish */
-    --button-hover-color: #bcaaa4; /* Light Brown */
+    --primary-color: #e4977a;
+    --secondary-color: #ffaa8b;
+    --background-color: #f5f5f5;
+    --text-color: #ff7e61;
+    --highlight-color: #f7cdbe; 
+    --button-hover-color: #bcaaa4;
 }
 
 .navbar-dark .navbar-brand {
