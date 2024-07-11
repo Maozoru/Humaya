@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito</title>
+    <title>Carrito de Compras</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../estilos/estilos.css">
-    <script src="https://kit.fontawesome.com/7c3b6be1f7.js" crossorigin="anonymous"></script>
+    <script src="cart.js" defer></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -21,7 +21,24 @@
             </form>
         </div>
     </nav>
-    
+    <main>
+        <section id="cart" class="py-5">
+            <div class="container">
+                <h2 class="text-center">Productos en tu Carrito</h2>
+                <div id="cart-items" class="row">
+                    <!-- Aquí se agregarán dinámicamente los productos del carrito -->
+                </div>
+                <div id="cart-total" class="text-center my-4">
+                    <h3>Total: $<span id="total-price">0.00</span></h3>
+                </div>
+                <div class="text-center">
+                    <button id="clear-cart" class="btn btn-danger mx-2">Limpiar Carrito</button>
+                    <button id="buy-now" class="btn btn-success mx-2">Comprar</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="bg-dark text-white text-center py-4">
         <div class="container">
             <div class="row">

@@ -7,6 +7,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../estilos/estilos.css">
     <script src="https://kit.fontawesome.com/7c3b6be1f7.js" crossorigin="anonymous"></script>
+    <script src="catalog.js" defer></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -19,8 +20,12 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos" aria-label="Buscar">
                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
             </form>
+            <a href="carrito.html" class="btn btn-outline-light my-2 my-sm-0">
+                Carrito <span id="cart-count" class="badge badge-light">0</span>
+            </a>
         </div>
     </nav>
+
     <section id="catalogo" class="py-5">
         <div class="container">
             <h2 class="text-center">Nuestros alfajores</h2>
@@ -33,7 +38,7 @@
                             <h5 class="card-title">Alfajor de chocolate</h5>
                             <p class="card-text">Delicioso alfajor de chocolate con relleno de dulce de leche.</p>
                             <p class="card-text">Precio: $150</p>
-                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <button class="btn btn-primary add-to-cart-button" data-id="1" data-name="Alfajor de chocolate" data-price="150" data-image="../imagenes/alfajor de chocolate.jpeg">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
@@ -45,7 +50,7 @@
                             <h5 class="card-title">Alfajor de maicena</h5>
                             <p class="card-text">Clásico alfajor de maicena con relleno de dulce de leche.</p>
                             <p class="card-text">Precio: $120</p>
-                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <button class="btn btn-primary add-to-cart-button" data-id="2" data-name="Alfajor de maicena" data-price="120" data-image="../imagenes/alfajor de maicena.jpeg">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
@@ -57,7 +62,7 @@
                             <h5 class="card-title">Alfajor de dulce de leche</h5>
                             <p class="card-text">Alfajor relleno de dulce de leche cubierto con merengue.</p>
                             <p class="card-text">Precio: $130</p>
-                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <button class="btn btn-primary add-to-cart-button" data-id="3" data-name="Alfajor de dulce de leche" data-price="130" data-image="../imagenes/alfajor de dulce de leche.jpg">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
@@ -69,7 +74,7 @@
                             <h5 class="card-title">Alfajor de frutas</h5>
                             <p class="card-text">Alfajor relleno de mermelada de frutas y cubierto con chocolate.</p>
                             <p class="card-text">Precio: $140</p>
-                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <button class="btn btn-primary add-to-cart-button" data-id="4" data-name="Alfajor de frutas" data-price="140" data-image="../imagenes/alfajor de frutas.jpg">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
@@ -81,7 +86,7 @@
                             <h5 class="card-title">Alfajor de nuez</h5>
                             <p class="card-text">Alfajor con relleno de nuez y dulce de leche, cubierto con chocolate.</p>
                             <p class="card-text">Precio: $160</p>
-                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <button class="btn btn-primary add-to-cart-button" data-id="5" data-name="Alfajor de nuez" data-price="160" data-image="../imagenes/alfajor de nuez.jpeg">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
@@ -93,13 +98,14 @@
                             <h5 class="card-title">Alfajor de coco</h5>
                             <p class="card-text">Alfajor de coco rallado con relleno de dulce de leche.</p>
                             <p class="card-text">Precio: $140</p>
-                            <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                            <button class="btn btn-primary add-to-cart-button" data-id="6" data-name="Alfajor de coco" data-price="140" data-image="../imagenes/alfajor de coco.jpg">Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <footer class="bg-dark text-white text-center py-4">
         <div class="container">
             <div class="row">
