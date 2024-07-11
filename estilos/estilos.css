@@ -161,3 +161,34 @@ footer a:hover {
 .carousel {
     margin-top: 20px;
 }
+
+.navbar-secondary {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #ffae0076;
+    padding: 10px;
+    z-index: 1000;
+    text-align: center;
+}
+
+.navbar-secondary ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-secondary li {
+    display: inline-block;
+    margin: 5px;
+    margin-right: 20px;
+}
+
+.navbar-secondary a {
+    color: white; /* Color de texto blanco */
+    padding: 8px 16px;
+    display: block; /* Mostrar como bloque */
+    text-decoration: none; /* Quitar subrayado del enlace */
+}

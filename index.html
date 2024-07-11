@@ -7,13 +7,15 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="estilos/estilos.css">
     <script src="https://kit.fontawesome.com/7c3b6be1f7.js" crossorigin="anonymous"></script>
+    <script src="JS/3prin.js" defer></script> <!-- Script catálogo -->
+    <script src="JS/navbar.js" defer></script><!-- Script barra secundaria -->
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Mordisco</a>
+            <a class="navbar-brand" href="#" onclick="toggleSecondaryNavbar()">Mordisco</a>
             <div class="navbar-center">
-                <img src="imagenes/logo1.png" alt="Logo" class="navbar-logo">
+                <img src="imagenes/logo1.png" alt="Logo" class="navbar-logo" onclick="toggleSecondaryNavbar()">
             </div>
             <form class="form-inline ml-auto">
                 <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos" aria-label="Buscar">
@@ -21,6 +23,25 @@
             </form>
         </div>
     </nav>
+
+    <!-- Barra de navegación secundaria (auxilio) -->
+    <div id="navbarSecondary" class="navbar-secondary">
+        <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="Paginas/catalogo.html">Catálogo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Paginas/carrito.html">
+                        Carrito <span id="cart-count" class="badge badge-light">0</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Paginas/formulario.html">Formulario</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -61,39 +82,10 @@
         </a>
     </div>
 
-    <section class="container my-5">
-        <h2 class="text-center mb-4">Nuestros productos</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card shadow-sm mb-4">
-                    <img src="imagenes/card1.png" class="card-img-top" alt="Alfajor Bragado">
-                    <div class="card-body">
-                        <h5 class="card-title">Alfajor Bragado</h5>
-                        <p class="card-text">Rellenos de dulce de leche y su cobertura de chocolate o glaseado. Destacan por su suavidad y sabor casero.</p>
-                        <a href="#" class="btn btn-primary btn-block">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm mb-4">
-                    <img src="imagenes/card2.png" class="card-img-top" alt="Alfajor Mar del Plata">
-                    <div class="card-body">
-                        <h5 class="card-title">Alfajor Mar del Plata</h5>
-                        <p class="card-text">Reconocidos por su alta calidad. Relleno de dulce de leche y una cobertura de chocolate amargo, blanco o de leche.</p>
-                        <a href="#" class="btn btn-primary btn-block">Comprar</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow-sm mb-4">
-                    <img src="imagenes/card3.png" class="card-img-top" alt="Alfajor de Maicena">
-                    <div class="card-body">
-                        <h5 class="card-title">Alfajor de maicena</h5>
-                        <p class="card-text">Están hechos con harina de maíz, rellenos de dulce de leche y los bordes son típicamente decorados con coco rallado.</p>
-                        <a href="#" class="btn btn-primary btn-block">Comprar</a>
-                    </div>
-                </div>
-            </div>
+    <section class="container my-5" id="productosDestacados">
+        <h2 class="text-center mb-4">Nuestros productos destacados</h2>
+        <div class="row" id="productosDestacadosRow">
+            <!-- 3 productos aleatorios -->
         </div>
     </section>
 
