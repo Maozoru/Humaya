@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../estilos/estilos.css">
+    <script src="https://kit.fontawesome.com/7c3b6be1f7.js" crossorigin="anonymous"></script>
+    <script src="catalog.js" defer></script>
+    <script src="../JS/navbar.js" defer></script><!-- Script barra secundaria -->
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html"">Mordisco</a>
+            <div class="navbar-center">
+                <img src="../imagenes/logo1.png" alt="Logo" class="navbar-logo" onclick="toggleSecondaryNavbar()">
+            </div>
+            <form class="form-inline ml-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar productos" aria-label="Buscar">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+
+    <!-- Barra de navegación secundaria (auxilio) -->
+    <div id="navbarSecondary" class="navbar-secondary">
+        <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Catálogo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="carrito.html">
+                        Carrito <span id="cart-count" class="badge badge-light">0</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="formulario.html">Formulario</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <section id="catalogo" class="py-5">
+        <div class="container">
+            <h2 class="text-center">Nuestros alfajores</h2>
+            <div class="row">
+                <!-- Producto 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="../imagenes/alfajor de chocolate.jpeg" class="card-img-top" alt="Alfajor de chocolate">
+                        <div class="card-body">
+                            <h5 class="card-title">Alfajor de chocolate</h5>
+                            <p class="card-text">Delicioso alfajor de chocolate con relleno de dulce de leche.</p>
+                            <p class="card-text">Precio: $150</p>
+                            <button class="btn btn-primary add-to-cart-button" data-id="1" data-name="Alfajor de chocolate" data-price="150" data-image="../imagenes/alfajor de chocolate.jpeg">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="../imagenes/alfajor de maicena.jpeg" class="card-img-top" alt="Alfajor de maicena">
+                        <div class="card-body">
+                            <h5 class="card-title">Alfajor de maicena</h5>
+                            <p class="card-text">Clásico alfajor de maicena con relleno de dulce de leche.</p>
+                            <p class="card-text">Precio: $120</p>
+                            <button class="btn btn-primary add-to-cart-button" data-id="2" data-name="Alfajor de maicena" data-price="120" data-image="../imagenes/alfajor de maicena.jpeg">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="../imagenes/alfajor de dulce de leche.jpg" class="card-img-top" alt="Alfajor de dulce de leche">
+                        <div class="card-body">
+                            <h5 class="card-title">Alfajor de dulce de leche</h5>
+                            <p class="card-text">Alfajor relleno de dulce de leche cubierto con merengue.</p>
+                            <p class="card-text">Precio: $130</p>
+                            <button class="btn btn-primary add-to-cart-button" data-id="3" data-name="Alfajor de dulce de leche" data-price="130" data-image="../imagenes/alfajor de dulce de leche.jpg">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 4 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="../imagenes/alfajor de frutas.jpg" class="card-img-top" alt="Alfajor de frutas">
+                        <div class="card-body">
+                            <h5 class="card-title">Alfajor de frutas</h5>
+                            <p class="card-text">Alfajor relleno de mermelada de frutas y cubierto con chocolate.</p>
+                            <p class="card-text">Precio: $140</p>
+                            <button class="btn btn-primary add-to-cart-button" data-id="4" data-name="Alfajor de frutas" data-price="140" data-image="../imagenes/alfajor de frutas.jpg">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 5 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="../imagenes/alfajor de nuez.jpeg" class="card-img-top" alt="Alfajor de nuez">
+                        <div class="card-body">
+                            <h5 class="card-title">Alfajor de nuez</h5>
+                            <p class="card-text">Alfajor con relleno de nuez y dulce de leche, cubierto con chocolate.</p>
+                            <p class="card-text">Precio: $160</p>
+                            <button class="btn btn-primary add-to-cart-button" data-id="5" data-name="Alfajor de nuez" data-price="160" data-image="../imagenes/alfajor de nuez.jpeg">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Producto 6 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card">
+                        <img src="../imagenes/alfajor de coco.jpg" class="card-img-top" alt="Alfajor de coco">
+                        <div class="card-body">
+                            <h5 class="card-title">Alfajor de coco</h5>
+                            <p class="card-text">Alfajor de coco rallado con relleno de dulce de leche.</p>
+                            <p class="card-text">Precio: $140</p>
+                            <button class="btn btn-primary add-to-cart-button" data-id="6" data-name="Alfajor de coco" data-price="140" data-image="../imagenes/alfajor de coco.jpg">Agregar al carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <p>Email: Mordisco25deMayo@gmail.com</p>
+                    <p>Teléfono: +54-2345 675398</p>
+                    <p>Con la colaboración especial de PortaCodigo</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Síguenos</h5>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Información</h5>
+                    <p><a href="#" class="text-white">Política de privacidad</a></p>
+                    <p><a href="#" class="text-white">Términos y condiciones</a></p>
+                </div>
+            </div>
+            <p class="mt-4">&copy; 2024 Mordisco. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
