@@ -13,6 +13,29 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-caption {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+    padding: 10px;
+}
+
+/* Ocultar la barra de búsqueda en dispositivos móviles */
+.form-inline {
+    display: none;
+}
+
+/* Mostrar la barra de búsqueda solo en dispositivos mayores a sm (576px) */
+@media (min-width: 576px) {
+    .form-inline {
+        display: flex;
+    }
+}
+
 .navbar-dark .navbar-brand {
     color: var(--secondary-color);
     font-size: 1.8rem;
