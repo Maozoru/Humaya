@@ -168,7 +168,7 @@ footer a:hover {
     top: 60px;
     left: 0;
     right: 0;
-    background-color: #ffae0076;
+    background-color: #722400ae;
     padding: 10px;
     z-index: 1000;
     text-align: center;
@@ -187,8 +187,11 @@ footer a:hover {
 }
 
 .navbar-secondary a {
-    color: white; /* Color de texto blanco */
+    color: white;
     padding: 8px 16px;
-    display: block; /* Mostrar como bloque */
-    text-decoration: none; /* Quitar subrayado del enlace */
+    display: block;
+    text-decoration: none;
+}
+.navbar-center:hover {
+    filter: brightness(70%);
 }
