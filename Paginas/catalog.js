@@ -1,5 +1,3 @@
-// catalog.js
-
 // Función para obtener los productos del localStorage
 function getCartItems() {
     return JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -16,12 +14,34 @@ function addToCart(product) {
     cartItems.push(product);
     saveCartItems(cartItems);
     updateCartCount();
+    showNotification(`${product.name} ha sido agregado al carrito`); // Mostrar notificación
 }
 
 // Función para actualizar la cuenta de productos en el carrito
 function updateCartCount() {
     const cartItems = getCartItems();
     document.getElementById('cart-count').textContent = cartItems.length;
+}
+
+// Función para mostrar la notificación cuando un producto se agrega al carrito
+function showNotification(message) {
+    // Crear el elemento de la notificación
+    const notification = document.createElement('div');
+    notification.classList.add('notification');
+    notification.textContent = message;
+
+    // Agregar la notificación al cuerpo de la página
+    document.body.appendChild(notification);
+
+    // Mostrar la notificación por 3 segundos
+    setTimeout(() => {
+        notification.style.opacity = '0';
+    }, 3000);
+
+    // Eliminar la notificación después de que se desvanezca
+    setTimeout(() => {
+        notification.remove();
+    }, 4000);
 }
 
 // Función para manejar el evento de agregar al carrito
