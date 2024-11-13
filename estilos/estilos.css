@@ -219,3 +219,15 @@ footer a:hover {
     transition: opacity 1s ease;
     z-index: 9999;
 }
+
+.fav-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #f39c12;
+    cursor: pointer;
+}
+
+.fav-btn:hover {
+    color: #e74c3c;
+}
