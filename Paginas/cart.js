@@ -24,7 +24,8 @@ function displayCartItems() {
                 <img src="${item.image}" class="card-img-top" alt="${item.name}">
                 <div class="card-body">
                     <h5 class="card-title">${item.name}</h5>
-                    <p class="card-text">$${item.price.toFixed(2)}</p>
+                    <p class="card-text">Precio: $${item.price.toFixed(2)}</p>
+                    <button class="btn btn-danger remove-item" data-id="${item.id}">Eliminar</button>
                 </div>
             </div>
         `;
@@ -32,7 +33,28 @@ function displayCartItems() {
     });
 
     updateTotalPrice();
+    addRemoveEventListeners(); // Para manejar la eliminación de productos
 }
+
+// Función para eliminar un producto del carrito
+function removeItemFromCart(id) {
+    let cartItems = getCartItems();
+    cartItems = cartItems.filter(item => item.id !== id);
+    saveCartItems(cartItems);
+    displayCartItems(); // Volver a mostrar los productos actualizados
+}
+
+// Asignar eventos a los botones de eliminación de productos
+function addRemoveEventListeners() {
+    const removeButtons = document.querySelectorAll('.remove-item');
+    removeButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const id = event.target.getAttribute('data-id');
+            removeItemFromCart(id);
+        });
+    });
+}
+
 
 // Función para actualizar el precio total
 function updateTotalPrice() {
@@ -47,11 +69,10 @@ function clearCart() {
     displayCartItems();
 }
 
-// Asignar eventos a los botones del carrito
-document.getElementById('clear-cart').addEventListener('click', clearCart);
+// Función para manejar la compra
 document.getElementById('buy-now').addEventListener('click', () => {
-    alert('Gracias por tu compra!');
-    clearCart();
+    alert('¡Gracias por su compra!');
+    clearCart(); // Limpiar el carrito después de la compra
 });
 
 // Mostrar los productos del carrito al cargar la página

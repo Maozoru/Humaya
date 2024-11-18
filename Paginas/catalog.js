@@ -1,128 +1,163 @@
-// Función para obtener los productos del localStorage
-function getCartItems() {
-    return JSON.parse(localStorage.getItem('cartItems')) || [];
-}
+document.addEventListener('DOMContentLoaded', async function () {
+    const productosCatalogo = document.getElementById('productosCatalogo');
+    const apiUrl = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail';
 
-// Función para guardar los productos en el localStorage
-function saveCartItems(items) {
-    localStorage.setItem('cartItems', JSON.stringify(items));
-}
+    // Función para cargar productos desde la API
+    async function cargarProductos() {
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            const cocktails = data.drinks;
 
-// Función para agregar un producto al carrito
-function addToCart(product) {
-    let cartItems = getCartItems();
-    cartItems.push(product);
-    saveCartItems(cartItems);
-    updateCartCount();
-    showNotification(`${product.name} ha sido agregado al carrito`); // Mostrar notificación
-}
+            // Generar dinámicamente las tarjetas de productos
+            cocktails.forEach(cocktail => {
+                const col = document.createElement('div');
+                col.classList.add('col-lg-4', 'col-md-6', 'mb-4');
 
-// Función para actualizar la cuenta de productos en el carrito
-function updateCartCount() {
-    const cartItems = getCartItems();
-    document.getElementById('cart-count').textContent = cartItems.length;
-}
+                col.innerHTML = `
+                    <div class="card">
+                        <img src="${cocktail.strDrinkThumb}" class="card-img-top" alt="${cocktail.strDrink}">
+                        <div class="card-body">
+                            <h5 class="card-title">${cocktail.strDrink}</h5>
+                            <p class="card-text">Disfruta de un delicioso cóctel preparado con ingredientes frescos.</p>
+                            <button class="btn btn-primary add-to-cart-button" 
+                                data-id="${cocktail.idDrink}" 
+                                data-name="${cocktail.strDrink}" 
+                                data-price="150" 
+                                data-image="${cocktail.strDrinkThumb}">
+                                Agregar al carrito
+                            </button>
+                            <button class="fav-btn" data-id="${cocktail.idDrink}">🤍</button>
+                        </div>
+                    </div>
+                `;
+                productosCatalogo.appendChild(col);
+            });
 
-// Función para mostrar la notificación cuando un producto se agrega al carrito
-function showNotification(message) {
-    // Eliminar cualquier notificación previa
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
+            // Asignar eventos a botones después de cargar productos
+            asignarEventos();
+        } catch (error) {
+            console.error('Error al cargar los productos:', error);
+            productosCatalogo.innerHTML = '<p>No se pudieron cargar los cócteles. Intenta más tarde.</p>';
+        }
     }
 
-    // Crear el elemento de la notificación
-    const notification = document.createElement('div');
-    notification.classList.add('notification');
-    notification.textContent = message;
+    // Función para obtener los productos del localStorage
+    function getCartItems() {
+        return JSON.parse(localStorage.getItem('cartItems')) || [];
+    }
 
-    // Agregar la notificación al cuerpo de la página
-    document.body.appendChild(notification);
+    // Función para guardar los productos en el localStorage
+    function saveCartItems(items) {
+        localStorage.setItem('cartItems', JSON.stringify(items));
+    }
 
-    // Mostrar la notificación por 3 segundos
-    setTimeout(() => {
-        notification.style.opacity = '0';
-    }, 3000);
+    // Función para agregar un producto al carrito
+    function addToCart(product) {
+        let cartItems = getCartItems();
+        cartItems.push(product);
+        saveCartItems(cartItems);
+        updateCartCount();
+        showNotification(`${product.name} ha sido agregado al carrito`);
+    }    
 
-    // Eliminar la notificación después de que se desvanezca
-    setTimeout(() => {
-        notification.remove();
-    }, 4000);
-}
+    // Función para actualizar la cuenta de productos en el carrito
+    function updateCartCount() {
+        const cartItems = getCartItems();
+        document.getElementById('cart-count').textContent = cartItems.length;
+    }
 
-// Función para manejar el evento de agregar al carrito
-function handleAddToCartButton(event) {
-    const button = event.target;
-    const product = {
-        id: button.getAttribute('data-id'),
-        name: button.getAttribute('data-name'),
-        price: parseFloat(button.getAttribute('data-price')),
-        image: button.getAttribute('data-image')
-    };
-    addToCart(product);
-}
+    function showNotification(message) {
+        const container = document.getElementById('notificationContainer');
+    
+        if (!container) {
+            console.warn('El contenedor de notificaciones no existe.');
+            return;
+        }
+    
+        // Crear un nuevo elemento de notificación
+        const notification = document.createElement('div');
+        notification.classList.add('alert', 'alert-success');
+        notification.textContent = message;
+    
+        // Agregar la notificación al contenedor
+        container.appendChild(notification);
+    
+        // Configurar la desaparición de la notificación
+        setTimeout(() => {
+            notification.classList.add('fade-out'); // Clase opcional para animar la salida
+            setTimeout(() => {
+                notification.remove();
+            }, 1000); // Tiempo adicional para que termine la animación
+        }, 3000);
+    }
+    
 
-// Asignar el evento a los botones de agregar al carrito
-document.querySelectorAll('.add-to-cart-button').forEach(button => {
-    button.addEventListener('click', handleAddToCartButton);
-});
+    // Función para manejar el evento de agregar al carrito
+    function handleAddToCartButton(event) {
+        const button = event.target;
+        const product = {
+            id: button.getAttribute('data-id'),
+            name: button.getAttribute('data-name'),
+            price: parseFloat(button.getAttribute('data-price')),
+            image: button.getAttribute('data-image')
+        };
+        addToCart(product);
+    }
 
-// Inicializar la cuenta de productos en el carrito al cargar la página
-document.addEventListener('DOMContentLoaded', updateCartCount);
+    // Funciones para manejar favoritos
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-// Inicializar lista de favoritos en localStorage (si no existe)
-let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    function saveFavorites() {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
 
-// Función para guardar favoritos en localStorage
-function saveFavorites() {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-}
+    function addFavorite(productId) {
+        if (!favorites.includes(productId)) {
+            favorites.push(productId);
+            saveFavorites();
+        }
+    }
 
-// Función para añadir un producto a favoritos
-function addFavorite(productId) {
-    if (!favorites.includes(productId)) {
-        favorites.push(productId);
+    function removeFavorite(productId) {
+        favorites = favorites.filter(id => id !== productId);
         saveFavorites();
     }
-}
 
-// Función para quitar un producto de favoritos
-function removeFavorite(productId) {
-    favorites = favorites.filter(id => id !== productId);
-    saveFavorites();
-}
-
-// Función para verificar si un producto está en favoritos
-function isFavorite(productId) {
-    return favorites.includes(productId);
-}
-
-// Función para actualizar el botón de favoritos (visualmente)
-function updateFavoriteButton(button, isFav) {
-    if (isFav) {
-        button.innerText = '💖'; // Producto marcado como favorito
-    } else {
-        button.innerText = '🤍'; // Producto no marcado como favorito
+    function isFavorite(productId) {
+        return favorites.includes(productId);
     }
-}
 
-// Inicializar botones de favoritos al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.fav-btn').forEach(button => {
-        const productId = button.dataset.id;
+    function updateFavoriteButton(button, isFav) {
+        button.innerText = isFav ? '💖' : '🤍';
+    }
 
-        // Actualizar visualización inicial del botón basado en el estado de favoritos
-        updateFavoriteButton(button, isFavorite(productId));
-
-        // Añadir evento al botón
-        button.addEventListener('click', () => {
-            if (isFavorite(productId)) {
-                removeFavorite(productId);
-                updateFavoriteButton(button, false);
-            } else {
-                addFavorite(productId);
-                updateFavoriteButton(button, true);
-            }
+    // Asignar eventos a los botones de carrito y favoritos
+    function asignarEventos() {
+        document.querySelectorAll('.add-to-cart-button').forEach(button => {
+            button.addEventListener('click', handleAddToCartButton);
         });
-    });
+
+        document.querySelectorAll('.fav-btn').forEach(button => {
+            const productId = button.dataset.id;
+
+            updateFavoriteButton(button, isFavorite(productId));
+
+            button.addEventListener('click', () => {
+                if (isFavorite(productId)) {
+                    removeFavorite(productId);
+                    updateFavoriteButton(button, false);
+                } else {
+                    addFavorite(productId);
+                    updateFavoriteButton(button, true);
+                }
+            });
+        });
+    }
+
+    // Inicializar la cuenta de productos en el carrito
+    updateCartCount();
+
+    // Cargar productos desde la API
+    cargarProductos();
 });
