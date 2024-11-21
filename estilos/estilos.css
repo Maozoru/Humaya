@@ -1,23 +1,28 @@
 :root {
-    --primary-color: #FF6F61; /* Coral tropical cálido */
-    --secondary-color: #F6A600; /* Amarillo tropical */
-    --background-color: #F0E5D8; /* Beige suave */
-    --text-color: #4F6D7A; /* Azul suave para texto */
-    --highlight-color: #F7B7A3; /* Rosa suave */
-    --button-hover-color: #FF8C42; /* Naranja vibrante */
+    --primary-color: #FF6F61;
+    --secondary-color: #ffeeaa;
+    --background-color: #F0E5D8;
+    --text-color: #4F6D7A;
+    --highlight-color: #F7B7A3;
+    --button-hover-color: #FF8C42;
+    --tropical-green: #00BFAE;
+    --sky-blue: #00A9D1;
+    --soft-beach-sand: #F9D6A5;
 }
 
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: 'Lobster', cursive; /* Fuente tropical con estilo veraniego */
+    font-family: 'Lobster', cursive;
     margin: 0;
     padding: 0;
+    background-image: linear-gradient(135deg, var(--soft-beach-sand), var(--sky-blue));
+    background-attachment: fixed;
 }
 
 .carousel-item img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 470px;
     border-radius: 10px;
 }
 
@@ -27,14 +32,14 @@ body {
     padding: 10px;
     color: var(--highlight-color);
     font-size: 1.5rem;
+    border-radius: 20px;
 }
 
-/* Barra de búsqueda con mejor diseño */
 .form-inline {
     display: none;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 56px) {
     .form-inline {
         display: flex;
     }
@@ -49,19 +54,23 @@ body {
 
 #navbarSecondary.visible {
     display: block;
+    text-align: center;
     opacity: 1;
     transform: translateY(0);
 }
 
-.navbar-dark .navbar-brand {
+.navbar-light .navbar-brand {
     color: var(--secondary-color);
-    font-size: 2rem; /* Aumentamos el tamaño para un mejor impacto */
+    font-size: 2rem;
     font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidad */
+    text-shadow: 2px 2px 4px rgba(28, 0, 75, 0.413);
+    align-items: center;
 }
 
-.navbar-dark .navbar-brand:hover {
-    color: var(--highlight-color);
+.navbar-light .navbar-brand:hover {
+    color: var(--tropical-green);
+    transform: scale(1.1);
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .navbar-center {
@@ -76,7 +85,7 @@ body {
 
 .form-inline .form-control {
     border-color: var(--highlight-color);
-    border-radius: 25px; /* Bordes redondeados para un estilo suave */
+    border-radius: 25px;
     padding: 8px 20px;
 }
 
@@ -84,7 +93,7 @@ body {
     color: var(--secondary-color);
     border-color: var(--highlight-color);
     font-size: 1rem;
-    border-radius: 25px; /* Bordes redondeados para los botones */
+    border-radius: 25px;
 }
 
 .btn-outline-light:hover {
@@ -94,13 +103,13 @@ body {
 }
 
 .section-heading {
-    font-size: 3rem; /* Aumentar el tamaño para hacerlo más impactante */
+    font-size: 3rem;
     font-weight: bold;
     margin-bottom: 40px;
     color: var(--primary-color);
     text-align: center;
     position: relative;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .section-heading::after {
@@ -118,18 +127,18 @@ body {
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
     height: 100%;
-    border-radius: 15px; /* Bordes más redondeados */
+    border-radius: 15px;
     overflow: hidden;
     margin-bottom: 30px;
-    background-color: #FFF9F3; /* Fondo suave */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+    background-color: #FFF9F3;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
     width: 100%;
-    height: 250px; /* Ajustar la altura para un look más estilizado */
+    height: 250px;
     object-fit: cover;
-    border-radius: 10px; /* Bordes redondeados en las imágenes */
+    border-radius: 10px;
 }
 
 .card:hover {
@@ -137,11 +146,16 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
+.card:hover img {
+    transform: scale(1.50);
+    object-fit: contain;
+}
+
 .card-title {
     color: var(--primary-color);
     font-size: 1.6rem;
     font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Sombra para mejorar la visibilidad */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .card-text {
@@ -150,19 +164,20 @@ body {
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
+    background-color: var(--tropical-green);
+    border-color: var(--tropical-green);
     font-size: 1.1rem;
     font-weight: bold;
     padding: 15px 30px;
-    transition: background-color 0.3s, transform 0.3s;
-    border-radius: 10px;
+    border-radius: 25px;
     text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: var(--button-hover-color);
-    border-color: var(--button-hover-color);
+    background-color: var(--sky-blue);
+    border-color: var(--sky-blue);
     transform: translateY(-3px);
 }
 
@@ -217,7 +232,7 @@ footer a:hover {
 
 .navbar-secondary {
     display: none;
-    background-color: #722400ae;
+    background-color: #062e6bae;
     text-align: center;
 }
 
@@ -266,4 +281,50 @@ footer a:hover {
 
 .fav-btn:hover {
     color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+    .navbar-dark .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .carousel-item img {
+        height: 350px;
+    }
+
+    .section-heading {
+        font-size: 2rem;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .btn-primary {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    .carousel-item img {
+        height: 250px;
+    }
+
+    .section-heading {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
 }

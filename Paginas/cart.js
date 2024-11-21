@@ -1,5 +1,3 @@
-// cart.js
-
 // Función para obtener los productos del localStorage
 function getCartItems() {
     return JSON.parse(localStorage.getItem('cartItems')) || [];
